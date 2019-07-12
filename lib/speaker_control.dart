@@ -1,105 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:seattle_trip/presentation_card.dart';
 
 import './speaker_info.dart';
 import './presentation_info.dart';
 
-class SpeakerControl extends StatefulWidget {
-  @override
-  _SpeakerControlState createState() => _SpeakerControlState();
-}
-
-class _SpeakerControlState extends State<SpeakerControl> {
-  List<PresentationInfo> _presentations = [
+class SpeakerControl extends StatelessWidget {
+  final List<PresentationInfo> _presentations = [
     PresentationInfo(
       speaker: SpeakerInfo(
-        firstName: 'Hilel',
-        lastName: 'Wayne',
+        firstName: 'Karla',
+        lastName: 'Burnett',
+        imageUrl: 'assets/karla-burnett.jpg',
       ),
-      title: 'Presentation Title',
-      topic: 'A presentaion topic that needs to be more defined.',
+      title: '2 Factor, 4 Humans',
+      topic:
+          '2-Factor Authentication, the good, the bad, and the ugly when it comes to security vs. accessibility.',
     ),
     PresentationInfo(
       speaker: SpeakerInfo(
-        firstName: 'Emily',
-        lastName: 'Shea',
+        firstName: 'Ayla',
+        lastName: 'Myers',
+        imageUrl: 'assets/ayla-myers.jpg',
       ),
-      title: 'Presentation Title',
-      topic: 'A presentaion topic that needs to be more defined.',
+      title: 'Multiplayer Game Networking: The Brute Force Approach',
+      topic:
+          'A story about Ayla\'s journey of attempting to implement a multiplayer game network from scratch numerous times until it worked... mostly.',
     ),
     PresentationInfo(
       speaker: SpeakerInfo(
-        firstName: 'Dan',
-        lastName: 'Abramov',
+        firstName: 'Kyle',
+        lastName: 'Kingsbury',
+        imageUrl: 'assets/kyle-kingsbury.jpg',
       ),
-      title: 'Presentation Title',
-      topic: 'A presentaion topic that needs to be more defined.',
-    ),
-    PresentationInfo(
-      speaker: SpeakerInfo(
-        firstName: 'Ramsey',
-        lastName: 'Nassar',
-      ),
-      title: 'Presentation Title',
-      topic: 'A presentaion topic that needs to be more defined.',
-    ),
-    PresentationInfo(
-      speaker: SpeakerInfo(
-        firstName: 'Ramsey',
-        lastName: 'Nassar',
-      ),
-      title: 'Presentation Title',
-      topic: 'A presentaion topic that needs to be more defined.',
+      title: 'Jepsen 11: Once More Unto The Breach',
+      topic:
+          'In an effort to make distributed systems safer, Kyle showed us some of the bugs he found in seamingly safe databases with the help of the Jepsen library.',
     ),
   ];
 
-  Widget _buildPresenationItem(PresentationInfo info) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    info.title,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Text(
-                  '${info.speaker.firstName} ${info.speaker.lastName}',
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: double.infinity,
-              height: 100,
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(info.topic),
-          ),
-        ],
-      ),
-    );
+  Widget _buildPresenationItem(BuildContext context, int index) {
+    PresentationInfo info = _presentations[index];
+    return PresentationCard(info);
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: _presentations
-          .map(
-            (info) => _buildPresenationItem(info),
-          )
-          .toList(),
+    return ListView.builder(
+      itemCount: _presentations.length,
+      itemBuilder: _buildPresenationItem,
     );
   }
 }
