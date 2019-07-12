@@ -7,16 +7,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seattle Trip'),
+        title: Text('Deconstruct 2019'),
       ),
       body: SpeakerControl(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {},
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.yellow,
-        tooltip: 'Add New Presentation',
-      ),
     );
   }
 }
