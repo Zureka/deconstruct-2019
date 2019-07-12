@@ -36,6 +36,16 @@ class SpeakerControl extends StatelessWidget {
       topic:
           'In an effort to make distributed systems safer, Kyle showed us some of the bugs he found in seamingly safe databases with the help of the Jepsen library.',
     ),
+    PresentationInfo(
+      speaker: SpeakerInfo(
+        firstName: 'Josh',
+        lastName: 'Cox',
+        imageUrl: 'assets/josh-cox.jpg',
+      ),
+      title: 'Identifying Mushrooms Like a Prolog',
+      topic:
+          'Hunting for mushrooms in Western Pensylvania, Josh wanted to find a way to more easily identify mushrooms without memorizing numerous field guides, so he wrote a program in Prolog to help.',
+    ),
   ];
 
   Widget _buildPresenationItem(BuildContext context, int index) {
