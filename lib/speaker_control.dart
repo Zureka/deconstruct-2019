@@ -5,7 +5,7 @@ import './presentation_card.dart';
 import './presenation_list.dart';
 
 class SpeakerControl extends StatelessWidget {
-  final List<PresentationInfo> _presentations = ALL_PRESENTATIONS;
+  final List<PresentationInfo> _presentations = allPresentations;
 
   Widget _buildPresenationItem(BuildContext context, int index) {
     PresentationInfo info = _presentations[index];

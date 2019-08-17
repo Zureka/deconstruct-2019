@@ -1,7 +1,7 @@
 import './speaker_info.dart';
 import './presentation_info.dart';
 
-final List<PresentationInfo> ALL_PRESENTATIONS = [
+final List<PresentationInfo> allPresentations = [
   PresentationInfo(
     speaker: SpeakerInfo(
       firstName: 'Karla',
